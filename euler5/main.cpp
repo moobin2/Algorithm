@@ -9,53 +9,49 @@
 
 using namespace std;
 
-int Max = 20;
+int Gcd(int a, int b); // 최대 공약수
+int Lcm(int a, int b); // 최소 공배수
 
 int main(void)
 {
-	//int count = 0;
-	//int variable = 1000000000;
-	//
-	////for (int i = 2; i <= Max; i++)
-	////{
-	////	variable *= i;
-	////}
-	//
-	//int min = variable;
-	//
-	//for (int i = variable; i >= Max; i = i - Max)
-	//{
-	//	for (int k = 1; k <= Max; ++k)
-	//	{
-	//		if (i % k == 0) count++;
-	//	}
-	//
-	//	if (count == Max && min > i)
-	//	{
-	//		min = i;
-	//	}
-	//	count = 0;
-	//}
-	//
-	//cout << min << endl;
+	int a = 1;
 
-	int a, b;
-	a = 1;
-
-	for (b = 1; b <= 20; b++)
+	for (int i = 2; i < 20; ++i)
 	{
-		if (a % b == 0)
-			continue;
-		else
-		{
-			a++;
-			b = 1;
-		}
+		a = Lcm(i, a);
 	}
-	printf("%d\n", a);
-	return 0;
 
+	cout << a << endl;
+	
 	return 0;
+}
+
+int Gcd(int a, int b)
+{
+	int max, min, temp;
+	if (a > b)
+	{
+		max = a;
+		min = b;
+	}
+	else
+	{
+		max = b;
+		min = a;
+	}
+
+	while (max % min != 0)
+	{
+		temp = max;
+		max = min;
+		min = temp % min;
+	}
+	return min;
+}
+
+int Lcm(int a, int b)
+{
+	return a * b / Gcd(a, b);
 }
 
 /*
