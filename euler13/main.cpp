@@ -1,4 +1,6 @@
-//#include <stdio.h>
+/*
+아래에 50자리 숫자가 100개 있습니다. 이것을 모두 더한 값의 첫 10자리는 얼마입니까?
+*/
 #include <iostream>
 
 using namespace std;
